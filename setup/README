@@ -13,3 +13,7 @@ http://releases.ubuntu.com/14.04/
 https://www.youtube.com/watch?v=U2LrFJnSVWU
 
 
+After the installation completion nd when you are at ubuntu virtual machine:
+$ sudo apt-get install git
+
+
