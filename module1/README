@@ -1,0 +1,14 @@
+To build this treat modeling tool:
+
+1. Run auto.sh ($ sudo bash auto.sh)
+2. You need only one command to run application after completion of all installation packages ($ sudo grunt serve --force)
+
+NOTE:
+1. Be assure that all the dependencies and packages are installed correctly
+2. You may need manual intervention while runing the script.
+
+You can go through the following links for more details:
+
+https://github.com/mozilla/seasponge
+
+http://mozilla.github.io/seasponge/#/
