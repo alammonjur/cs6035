@@ -1,0 +1,60 @@
+This module demonstrates simple buffer overflow problems.
+
+Prerequisite:
+1. gcc -compiler (it should be inbuilt with ubuntu 14.04.4 which is installed with virtualBox)
+2. gdb -debuging tool (it should be inbuilt with ubuntu 14.04.4)
+   copy .gdbinit to ~/ folder ($ cp .gdbinit ~/.)
+
+Problem1 (passwd):
+   i/p: passowrd (a set of strings)
+   o/p: acquire root privilege
+   statement: The program ask you for password and check the given password with the hard-coded one. Your   aim is to cracking the password even if you do not know the password
+  
+   Tips: 1. Use gdb and try to understand the stacks
+         $gdb passwd
+         $break main
+         $disassemble main
+         $r
+         $n
+       2. See the location/variable where does it check the passwd; can you overwrite that location?
+
+
+
+Problem2 (passwd1):
+   i/p: passowrd (a set of strings)
+   o/p: acquire root privilege
+   statement: The program ask you for password and check the given password with the hard-coded one. But the logic gets changed. Your   aim is to cracking the password even if you do not know the password
+  
+   Tips: 1. Use gdb and try to understand the stacks
+         2. Simply overflowing the buffer of password is sufficient? Probably not. Try to understand,
+     why? guess what to do? Apply the technique for the next problem.
+
+
+Problem3 (passwd2):
+   i/p: payload
+   o/p: acquire root privilege
+   statement: The program takes run time argument (like ./passwd2 passrd_string) and check the given password with the hard-coded one. The logic is exactly same as the previous one except for the run time argument. Your aim is to cracking the password even if you do not know the password
+  
+   Tips: 1. Try to understand how to create payload and how to use it from the terminal as well as from the gdb.
+         2. $ print '"A"*X+"\xk\x00\x00\x00"' > payload
+            $ ./passwd2 < payload (or ./passwd2 `python -c 'print "A"*12+"\xk\x00\x00\x00"'`)
+            $ r `python -c 'print "A"*X+"\xk\x00\x00\x00"'` (in case of gdb)
+    The above example, fill the stack pointer with X times "A" followed by write k at the next address. You have to know the address from where it copies the values. If you see the stack of gdb, you can guess.
+    3.  So you got!!! You need to write the value used in the program at the intended location
+
+
+
+Problem4 (passwd3):
+   i/p: payload
+   o/p: acquire root privilege by jumping to you intended location
+   statement: The program takes run time argument (like ./passwd3 passrd_string) and check the given password with the hard-coded one. There is also one loop-hole in the program. We use another function which does not check passwd but gives you root privilege. Can you jump to that function? If so, you can jump to any location of the stack and you can keep malicious code there and execute that.
+  
+   Tips: 1. Each function has a return statement and the program switch into the address located into the return address. Overwrite the return address with the address of the vulnerable function.
+
+
+Problem4 (passwd3):
+   i/p: payload
+   o/p: acquire root privilege by jumping to you intended location
+   statement: You can not simply overwrite the return address; because we keep a checker before the return address. If you overwrite the return address, the checker gets modified and check its value with the original one. So, program exits, you cant not jump to your location.
+  
+   Tips: Not so easy! just think...
