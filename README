@@ -1,0 +1,19 @@
+1. Dowlload the virtual box from this link:
+https://www.virtualbox.org/wiki/Downloads
+
+For Ubuntu:
+$ sudo apt-get update
+$ sudo apt-get install virtualbox-5.0
+$ virtualbox
+
+2. Download 32-bit ubuntu image for virtualBox from this link:
+http://releases.ubuntu.com/14.04/
+
+3. Open the virtualbox and follow the steps mentioned at the following links to install ubuntu at the virtual platform:
+https://www.youtube.com/watch?v=U2LrFJnSVWU
+
+
+After the installation completion nd when you are at ubuntu virtual machine:
+$ sudo apt-get install git
+
+
