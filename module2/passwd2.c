@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     if(strcmp(buff, "password"))
     {
-        printf ("\n You Put Wrong Password. You need to overflow the buffer to get correct password. See how to overflow the buffer with exact value hex(03) in our case:");
+        printf ("\n You Put Wrong Password. You need to overflow the buffer to get correct password. See EADME (problem3) ho to overflow the buffer with exact value hex(03) in our case:\n");
     }
     else
     {
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     if(pass == 3)
     {
        /* Now Give root or admin rights to user*/
-        printf ("\n Great!! You have done it. So your password will be considered as correct even though you put wrong one one\n\n");
+        printf ("\n Great!! You have done it. So your password will be considered as correct even though you put wrong one \n\n");
 
     return 0;
     }
