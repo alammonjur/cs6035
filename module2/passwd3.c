@@ -3,7 +3,7 @@
 
 
 int passwd_check() {
-     printf ("\n You have reached the location of Root privileges \n");
+     printf ("\n Great!! You have done it. So your password will be considered as correct even though you put wrong one one \n\n");
     return 0;
 }
 
@@ -16,18 +16,11 @@ int main(int argc, char *argv[])
 
     if(strcmp(buff, "password"))
     {
-        printf ("\n Wrong Password \n");
+        printf ("\n You Put Wrong Password. You need to overflow the buffer and overwrite the return address with the address of passwd_check function to obtain the correct password, read the README and find out how to get it:\n");
     }
     else
     {
         printf ("\n Correct Password \n");
-        pass = 3;
-    }
-
-    if(pass == 3)
-    {
-       /* Now Give root or admin rights to user*/
-        printf ("\n Root privileges is somewhere else ! \n");
     }
 
     return 0;
