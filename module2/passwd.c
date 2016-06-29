@@ -11,7 +11,7 @@ int main(void)
 
     if(strcmp(buff, "password"))
     {
-        printf ("\n You Put Wrong Password");
+        printf ("\n You Put Wrong Password \n");
     }
     else
     {
